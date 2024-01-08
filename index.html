@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Delivery</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Home.js" defer></script>
+    <style>
+        body{
+            background: url(bg.jpg) no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="Menu.html">Menu</a></li>
+              <li><a href="Contact.html">Contact</a></li>
+            </ul>
+         </nav> 
+    </header>
+    <section class="search-section">
+        <h2>Find Your Favorite Food</h2>
+        <form id="food-search-form">
+            <input type="text" id="search-input" placeholder="Search for dishes...">
+            <button type="submit">Search</button>
+        </form>
+    </section>
+    
+<div class="mo">
+        Craving delicious food? Explore our diverse menu featuring a wide array of culinary delights, from mouth-watering appetizers to decadent desserts.<br><br><br>
+        Don't miss out on our special promotions and exclusive offers for a delightful dining experience.<br><br><br>
+         Click Menu to view our menu and start your order!
+</div>
+<div class="mi">
+    <b>Order now and enjoy the convenience of doorstep delivery.</b>                       
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchForm = document.getElementById('food-search-form');
+        const searchInput = document.getElementById('search-input');
+
+        searchForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const searchTerm = searchInput.value.trim().toLowerCase();
+
+            
+            const foodItemMapping = {
+                'crunchy spring rolls': 'crunchy-spring-rolls',
+                'cheese stuffed mushrooms': 'cheese-stuffed-mushrooms',
+                'Mango Lassi':'Mango Lassi',
+                'Cheeseburger':'Cheeseburger',
+                'Margherita Pizza':'Margherita Pizza',
+                'Paneer Tikka':'Paneer Tikka',
+                'Iced Caramel Macchiato':'Iced Caramel Macchiato',
+                'lava cake':'lava cake',
+                
+            };
+
+           
+            if (foodItemMapping.hasOwnProperty(searchTerm)) {
+              
+                window.location.href = `menu.html#${foodItemMapping[searchTerm]}`;
+            } else {
+                alert('Item not found. Please try another search term.');
+            }
+        });
+    });
+</script>
+
+
+
+
+    <footer>
+        &copy; 2024 Food Delivery Service
+    </footer>
+</body>
+</html>
